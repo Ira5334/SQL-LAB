@@ -1,12 +1,12 @@
 USE company;
 
 CREATE TABLE IF NOT EXISTS `invoice` (
-	`invoice_id` BIGINT(15) NOT NULL,
-    `employee_id` INT NOT NULL,
-    `customer_id` INT,
-    `payment_method` INT NOT NULL,
-    `transaction_moment` DATETIME NOT NULL,
-    `status` varchar(10) NOT NULL
+`invoice_id` BIGINT(15) NOT NULL,
+`employee_id` INT NOT NULL,
+`customer_id` INT,
+`payment_method` INT NOT NULL,
+`transaction_moment` DATETIME NOT NULL,
+`status` varchar(10) NOT NULL
 );
 
 -- Add new columns
