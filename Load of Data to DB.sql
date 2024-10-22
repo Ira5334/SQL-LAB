@@ -1,14 +1,12 @@
 
-
-/* LOAD DATA*/
-
 USE company;
-INSERT INTO department(department_id, department_name, city, street, building_no) VALUES 
+
+INSERT INTO department_(department_id, department_name, city, street, building_no) VALUES 
 (1, 'Sun', 'Lviv', 'Gorodotska', 165),
 (2, 'Moon', 'Kiyv', 'Shevchenka', 15),
 (3, 'Saturn', 'Lviv', 'Zelena', 210),
 (4, 'Mars', 'Rivne', 'Verbova', 57),
-(5, 'Mercury', 'Ternopil', NULL, 34),
+(5, 'Mercury', 'Ternopil', 'Shevchenka', 34),
 (6, 'Pluton', 'Kiyv', 'Chreschtschatyk', 128);
 
 -- DONE
@@ -16,7 +14,6 @@ INSERT INTO department(department_id, department_name, city, street, building_no
 USE company;
 
 INSERT INTO employee (employee_id, user_name, first_name, last_name, position, employment_date, department_id, manager_id, rate, bonus) VALUES
-(1,'LyubomyrMartynenko','Lyubomyr','Martynenko','CEO','1998-01-01',1,NULL,10000,NULL),
 (2,'LinaSirenko','Lina','Sirenko','Financial Analitic','2016-08-20',1,1,8500,NULL),
 (3,'OksanaZayika','Oksana','Zayika','Accountant','2007-10-24',1,1,6500,NULL),
 (4,'YaroslavTymchuk','Yaroslav','Tymchuk','Human Resources','2018-01-11',1,1,6000,NULL),
@@ -36,7 +33,7 @@ INSERT INTO employee (employee_id, user_name, first_name, last_name, position, e
 (18,'ZynayidaKravchenko','Zynayida','Kravchenko','Manager Assistant','2016-05-30',2,12,5500,NULL),
 (19,'LidiyaGoncharenko','Lidiya','Goncharenko','Manager Assistant','2014-04-12',3,13,5500,NULL),
 (20,'TarasOkhrimenko','Taras','Okhrimenko','Senior Consultant','2012-10-17',1,9,5500,275),
-(21,'ViktorKovalov','Viktor','Demchuk','Consultant','2018-05-14',1,9,4500,225), 
+(21,'ViktorDemchuk','Viktor','Demchuk','Consultant','2018-05-14',1,9,4500,225), 
 (22,'OlhaSayenko','Olha','Sayenko','Assistant Consultant','2006-12-28',1,9,4000,200),
 (23,'AntoninaVlasyuk','Antonina','Vlasyuk','Seller','2016-03-08',1,9,3500,175),
 (24,'YuliyaSerporiz','Yuliya','Serporiz','Seller','2008-07-20',1,9,3500,175),
@@ -53,7 +50,7 @@ INSERT INTO employee (employee_id, user_name, first_name, last_name, position, e
 (35,'LidiyaPylypenko','Lidiya','Pylypenko','Assistant Consultant','2007-03-30',3,11,4000,200),
 (36,'NadiyaMedvid','Nadiya','Medvid','Seller','2007-03-07',3,11,3500,175),
 (37,'TarasRudyk','Taras','Rudyk','Seller','2001-08-02',3,11,3500,175),
-(38,'ViktorKovalov','Viktor','Kovalov',NULL,'2002-12-19',3,11,3500,175),
+(38,'ViktorKovalov','Viktor','Kovalov','Senir','2002-12-19',3,11,3500,175),
 (39,'PanasSirenko','Panas','Sirenko','Senior Consultant','2007-09-15',4,12,5500,275),
 (40,'YaroslavLysyuk','Yaroslav','Lysyuk','Consultant','2008-02-10',4,12,4500,225),
 (41,'AdamMazurenko','Adam','Mazurenko','Assistant Consultant','2016-11-19',4,12,4000,200),
@@ -70,7 +67,7 @@ INSERT INTO employee (employee_id, user_name, first_name, last_name, position, e
 -- DONE
 
 USE company;
-INSERT INTO customer (customer_id,first_name,last_name,genger,birth_date,phone_number,email,discount) VALUES
+INSERT INTO customer (customer_id,first_name,last_name,gender,birth_date,phone_number,email,discount) VALUES
 (94, 'Eduard','Usenko','M','1983-01-26',380505552124,'EduardUsenko@mail.com',9),
 (5, 'Artem','Shirman','M','1974-11-15',380395550941,'ArtemShirman@mail.com',11),
 (21, 'Serhij','Leshchenko','M','1991-10-24',380635556576,'SerhijLeshchenko@mail.com',22),
@@ -92,7 +89,7 @@ INSERT INTO customer (customer_id,first_name,last_name,genger,birth_date,phone_n
 (39, 'Anton','Ponomarenko','M','1986-06-09',380395555720,'AntonPonomarenko@mail.com',17),
 (48, 'Rostyslav','Kolisnyk','M','1975-03-15',380395559615,'RostyslavKolisnyk@mail.com',12),
 (51, 'Rostyslav','Rudenko','M','1973-05-24',380195555550,'RostyslavRudenko@mail.com',8),
-(56, 'Leonid','Musiyenko','M','1991-06-06','380-63-855-58-20','LeonidMusiyenko@mail.com',25), 
+(56, 'Leonid','Musiyenko','M','1991-06-06','380638555820','LeonidMusiyenko@mail.com',25), 
 (6, 'Eduard','Shirman','M','1995-10-11',380395550058,'EduardShirman@mail.com',22),
 (16, 'Yevhen','Getman','M','1998-10-22',380505550413,'YevhenGetman@mail.com',12),
 (26, 'Mykyta','Shevchenko','M','1973-12-29',380395550365,'MykytaShevchenko@mail.com',9),
@@ -315,7 +312,7 @@ INSERT INTO invoice (invoice_id, employee_id, customer_id, payment_method,transa
 ('20220909092219',28,62,1, '2022-09-09 09:22:19',2),
 ('20220910093446',39,91,2, '2022-09-10 09:34:46',4),
 ('20220911110411',21,89,1, '2022-09-11 11:04:11',2),
-('20220912081145',NULL,49,2, '2022-09-12 08:11:45',4),
+('20220912081145',23,49,2, '2022-09-12 08:11:45',4),
 ('20220913081549',41,75,2, '2022-09-13 08:15:49',3),
 ('20220914092546',30,13,1, '2022-09-14 09:25:46',4),
 ('20220915081136',32,90,1, '2022-09-15 08:11:36',3),
@@ -662,7 +659,7 @@ INSERT INTO invoice (invoice_id, employee_id, customer_id, payment_method,transa
 ('20230920123759',22,33,3, '2023-09-20 12:37:59',2),
 ('20230921091036',32,99,2, '2023-09-21 09:10:36',1),
 ('20230922111119',35,3,3, '2023-09-22 11:11:19',4),
-('20230922111119',43,43,1, '2023-09-23 11:56:01',3),
+('20230923115601',43,43,1, '2023-09-23 11:56:01',3),
 ('20230924114050',44,53,2, '2023-09-24 11:40:50',3),
 ('20230925102003',36,100,3, '2023-09-25 10:20:03',2),
 ('20230926085404',20,25,2, '2023-09-26 08:54:04',1),
@@ -672,7 +669,7 @@ INSERT INTO invoice (invoice_id, employee_id, customer_id, payment_method,transa
 ('20230930120601',26,7,1, '2023-09-30 12:06:01',3),
 ('20231001081816',30,25,1, '2023-10-01 08:18:16',2);
 
-
+DELETE FROM invoice;
 
 
 -- DONE
@@ -1678,4 +1675,3 @@ INSERT INTO orders (orders_id, invoice_id, product_id, order_datetime, quantity)
 (998,'20231001081816',41,'2023-10-01 10:03:10',3),
 (999,'20231001081816',13,'2023-10-01 11:46:25',3),
 (1000,'20231001081816',91,'2023-10-01 11:58:40',3);
-
