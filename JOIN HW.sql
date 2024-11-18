@@ -9,11 +9,17 @@ SELECT
 FROM 
 	orders AS o
 JOIN 
-	product AS p ON o.product_id = p.product_id
+	product AS p 
+ON
+	o.product_id = p.product_id
 JOIN 
-	invoice AS i ON o.invoice_id = i.invoice_id
+	invoice AS i 
+ON 
+	o.invoice_id = i.invoice_id
 LEFT JOIN 
-	customer AS c ON i.customer_id = c.customer_id
+	customer AS c 
+ON 
+	i.customer_id = c.customer_id
 ORDER BY 
 	o.orders_id;
 
@@ -31,15 +37,25 @@ SELECT
 FROM 
 	orders AS o 
 JOIN 
-	product AS p ON o.product_id = p.product_id
+	product AS p 
+ON
+	o.product_id = p.product_id
 JOIN 
-	invoice AS i ON o.invoice_id = i.invoice_id
+	invoice AS i
+ON 
+	o.invoice_id = i.invoice_id
 LEFT JOIN 
-	customer AS c ON i.customer_id = c.customer_id
+	customer AS c 
+ON 
+	i.customer_id = c.customer_id
 JOIN 
-	employee AS e ON i.employee_id = e.employee_id
+	employee AS e 
+ON 
+	i.employee_id = e.employee_id
 JOIN 
-	department AS d ON e.department_id = d.department_id
+	department AS d
+ON 
+	e.department_id = d.department_id
 WHERE
 	department_name = "Mercury"
 AND
@@ -57,7 +73,9 @@ SELECT
 FROM 
     customer AS c
 LEFT JOIN 
-    invoice AS i ON c.customer_id = i.customer_id
+    invoice AS i 
+ON 
+	c.customer_id = i.customer_id
 UNION
 SELECT 
     c.customer_id AS 'Customer ID',
