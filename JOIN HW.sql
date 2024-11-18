@@ -1,5 +1,5 @@
 SELECT
-	o.orders_id "Orders ID",
+    o.orders_id "Orders ID",
     p.product_name "Product name",
     p.category "Product category",
     i.invoice_id "Invoice ID",
@@ -25,11 +25,11 @@ ORDER BY
 
 
 SELECT
-	o.orders_id "Orders ID",
+    o.orders_id "Orders ID",
     d.department_name "Department name",
     e.user_name "User name",
     p.product_name "Product name",
-	p.category "Product category",
+    p.category "Product category",
     i.invoice_id "Invoice ID",
     i.transaction_moment "Transaction moment",
     c.last_name "Customer last name",
@@ -53,7 +53,7 @@ JOIN
 ON 
 	i.employee_id = e.employee_id
 JOIN 
-	department AS d
+	department_ AS d
 ON 
 	e.department_id = d.department_id
 WHERE
@@ -86,8 +86,9 @@ SELECT
 FROM 
     customer AS c
 RIGHT JOIN 
-    invoice AS i ON c.customer_id = i.customer_id
+    invoice AS i 
+ON
+	c.customer_id = i.customer_id
 ORDER BY 
     `Invoice ID`;
     
-/* В mysql немає операторів full join чи outer join. І для того щоб виконати запит ми використовуємо Right Join і Left Join, а потім їх об'єднуємо.
