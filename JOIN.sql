@@ -1,7 +1,7 @@
 USE company;
 
 SELECT 
-	employee_id "Manager ID",
+    employee_id "Manager ID",
     last_name "Manager Last Name",
     first_name "Manager First Name",
     position "Manager Title",
@@ -12,8 +12,8 @@ WHERE
 	position IN ('CEO', 'Manager');
     
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     e.employment_date "Employee Hire Date",
@@ -30,22 +30,21 @@ WHERE
 	e.manager_id = m.employee_id;
     
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     e.department_id "Employee Department ID",
     d.department_id "Department ID",
     d.department_name "Department name"
 FROM 
-	employee AS e,
-    department AS d
+    employee AS e, department AS d
 WHERE
 	e.department_id = d.department_id;
     
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     i.employee_id "Invoice Employee ID",
@@ -61,8 +60,8 @@ ORDER BY
 	i.transaction_moment;
     
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     i.employee_id "Invoice Employee ID",
@@ -76,8 +75,8 @@ ORDER BY
 	i.transaction_moment;
     
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     i.employee_id "Invoice Employee ID",
@@ -98,8 +97,8 @@ ORDER BY
 	transaction_moment;
 
 SELECT
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     i.employee_id "Invoice Employee ID",
@@ -120,13 +119,13 @@ WHERE customer_id IS NULL
 ORDER BY i.transaction_moment;
 
 SELECT 
-	e.employee_id "Employee ID",
-	e.last_name "Employee Last Name",
+    e.employee_id "Employee ID",
+    e.last_name "Employee Last Name",
     e.first_name "Employee First Name",
     e.position "Employee Title",
     e.manager_id "Employee Manager ID",
     e.department_id "Employee department ID",
-	m.employee_id "Manager ID",
+    m.employee_id "Manager ID",
     m.last_name "Manager Last Name",
     m.first_name "Manager First Name",
     m.position "Manager Title",
@@ -135,16 +134,18 @@ SELECT
     d.department_name "Department Name",
     d.city "Department City"
 FROM 
-	department AS d
+	department_ AS d
 RIGHT JOIN 
 	employee AS e
-ON e.department_id = d.department_id
+ON 
+	e.department_id = d.department_id
 LEFT JOIN
 	employee AS m
-ON e.manager_id = m.employee_id;
+ON 
+	e.manager_id = m.employee_id;
 
 SELECT
-	employee_id,
+    employee_id,
     first_name,
     last_name,
     position,
@@ -155,7 +156,7 @@ WHERE
 	position LIKE '%Consultant%'
 UNION
 SELECT
-	employee_id,
+    employee_id,
     first_name,
     last_name,
     position,
