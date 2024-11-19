@@ -15,7 +15,9 @@ SELECT
 FROM
     orders AS o
 JOIN
-	product AS p ON o.product_id = p.product_id
+	product AS p
+ON 
+	o.product_id = p.product_id
 GROUP BY
 	`Sales Period`, `Month`;
 
@@ -29,7 +31,9 @@ SELECT
 FROM  
 	orders AS o 
 JOIN  
-	product AS p ON o.product_id = p.product_id 
+	product AS p 
+ON 
+	o.product_id = p.product_id 
 GROUP BY  
 	`Product ID`
 ORDER BY
@@ -44,11 +48,17 @@ SELECT
 FROM 
     customer c
 JOIN 
-    invoice i ON c.customer_id = i.customer_id
+    invoice i 
+ON 
+	c.customer_id = i.customer_id
 JOIN 
-    orders o ON i.invoice_id = o.invoice_id
+    orders o 
+ON 
+	i.invoice_id = o.invoice_id
 JOIN 
-    product p ON o.product_id = p.product_id
+    product p 
+ON
+	o.product_id = p.product_id
 GROUP BY 
     c.customer_id, c.last_name, c.first_name
 ORDER BY 
